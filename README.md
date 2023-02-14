@@ -9,29 +9,24 @@ Write a simple application that detects changes in a local folder. During the fi
 
 For each file maintain the version. At the beginning all files will have version equal to 1. With each  detected change, the version is increased by 1.
 
-Write the app as an ASP .NET MVC program.
-
 Assume that the size of files in given folder will be less than 50MB and that number of files in each folder will be 100 at most.
 
 App will be executed from the UI by clicking on a button (doesn't detect changes automatically).
 
 Do not use databases.
 
-## Example output
+## How to run
 
-1. First run
-    > *Input: C:\myFolder
-    Output: New folder. No changes.*
+#### Requirements
 
-2. Additional run
-    > *Input: C:\myFolder
-    Output:
-    [A] new.txt
-    [A] subfolder/anotherNew.docx
-    [M] changed.txt (version 2)
-    [D] subfolder/deleted.xlsx*
+* .Net 7
+* Node.js 16
 
-3. Additional run
-    > *Input: C:\myFolder
-    Output:
-    No changes.*
+#### Backend
+    cd Be\FolderScanner
+    dotnet run
+
+#### Frontend
+    cd Fe
+    pnpm i
+    pnpm dev
