@@ -6,7 +6,7 @@ import { modifiedFileType } from "@/enum/modifiedFileType";
 
 export const useModifiedFilesStore = defineStore("modifiedFiles", () => {
   const allModifiedFiles = ref<Array<ModifiedFile>>([]);
-  const error = ref<string>();
+  const error = ref<string | null>(null);
   const isLoading = ref<boolean>(false);
 
   const addedFiles = computed(() =>
@@ -21,7 +21,7 @@ export const useModifiedFilesStore = defineStore("modifiedFiles", () => {
 
   function clearState() {
     allModifiedFiles.value = [];
-    error.value = undefined;
+    error.value = null;
   }
 
   async function getModifiedFiles(path: string) {
@@ -53,6 +53,7 @@ export const useModifiedFilesStore = defineStore("modifiedFiles", () => {
     editedFiles,
     deletedFiles,
 
+    clearState,
     getModifiedFiles,
   };
 });
