@@ -10,15 +10,18 @@ const modifiedFilesStore = useModifiedFilesStore();
   <modified-files-section
     title="Added files"
     :items="modifiedFilesStore.addedFiles"
+    data-test="modified-file-list_added-files"
   />
   <modified-files-section
     title="Edited files"
     display-version
     :items="modifiedFilesStore.editedFiles"
+    data-test="modified-file-list_edited-files"
   />
   <modified-files-section
     title="Deleted files"
     :items="modifiedFilesStore.deletedFiles"
+    data-test="modified-file-list_deleted-files"
   />
   <DisplayMessage
     v-if="modifiedFilesStore.allModifiedFiles.length === 0"
