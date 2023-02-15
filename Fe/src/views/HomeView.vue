@@ -7,8 +7,6 @@ import DisplayMessage from "@/components/DisplayMessage.vue";
 import IntroductionText from "@/components/IntroductionText.vue";
 import SimpleLayout from "@/components/layout/SimpleLayout.vue";
 import LoadingBackdrop from "@/components/ui/LoadingBackdrop.vue";
-import ProgressSpinner from '@/components/ui/ProgressSpinner.vue';
-import BackdropOverlay from '@/components/ui/BackdropOverlay.vue';
 
 const modifiedFilesStore = useModifiedFilesStore();
 

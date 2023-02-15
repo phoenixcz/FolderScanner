@@ -17,9 +17,7 @@ const handleSubmit = async () => {
     <div class="scan-folder-form__input-group">
       <input
         class="scan-folder-form__input"
-        id="btn-input"
         type="text"
-        name="message"
         placeholder="Enter path to the folder..."
         v-model="path"
         required
@@ -29,7 +27,6 @@ const handleSubmit = async () => {
       <button
         class="scan-folder-form__button"
         type="submit"
-        id="btn-chat"
         data-test="scan-folder_submit"
       >
         Submit
