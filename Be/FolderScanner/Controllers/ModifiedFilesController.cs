@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using AutoMapper;
+﻿using AutoMapper;
 using FolderScanner.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using FolderScanner.Interfaces;
@@ -26,22 +25,14 @@ public class ModifiedFilesController : ControllerBase
     }
 
     [HttpGet("{path}")]
-    public IActionResult GetModifiedFiles([DefaultValue("C:\\Scan")]string path)
+    public IActionResult GetModifiedFiles(string path)
     {
-        try
-        {
-            _logger.LogInformation("Started getting of modified files for path: {Path}", path);
+        _logger.LogInformation("Started getting of modified files for path: {Path}", path);
 
-            var result = _scanFolderOrchestrator.ScanFolder(path);
-            var dto = _mapper.Map<IReadOnlyCollection<ModifiedFileDto>>(result);
+        var result = _scanFolderOrchestrator.ScanFolder(path);
+        var dto = _mapper.Map<IReadOnlyCollection<ModifiedFileDto>>(result);
 
-            _logger.LogInformation("Finished getting of modified files for path: {Path}", path);
-            return Ok(dto);
-        }
-        catch (Exception e)
-        {
-            _logger.LogError(e, "Error while getting of modified files for path: {Path}", path);
-            return BadRequest(e.Message);
-        }
+        _logger.LogInformation("Finished getting of modified files for path: {Path}", path);
+        return Ok(dto);
     }
 }
