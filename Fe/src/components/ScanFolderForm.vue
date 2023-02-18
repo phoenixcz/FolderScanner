@@ -5,7 +5,7 @@ const emit = defineEmits<{
   (e: "submit", path: string): void;
 }>();
 
-const path = ref<string>("C:\\scan");
+const path = ref<string>(import.meta.env.VITE_DEFAULT_FOLDER_PATH);
 
 const handleSubmit = async () => {
   emit("submit", path.value);

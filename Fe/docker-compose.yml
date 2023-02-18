@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  fe:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_DEFAULT_FOLDER_PATH=DockerCompose
+        - VITE_API_URL=http://localhost:5005
+    ports:
+      - "5055:8080"

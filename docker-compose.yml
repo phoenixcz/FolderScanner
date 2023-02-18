@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  be:
+    image: ${DOCKER_REGISTRY-}folderscanner
+    build:
+      context: Be
+      dockerfile: FolderScanner/Dockerfile
+    ports:
+     - "5005:8080"  
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Development}
+      - ASPNETCORE_URLS=http://*:8080
+    volumes:
+      - ./DockerCompose:/app/DockerCompose
+  fe:
+    build:
+      context: Fe
+      dockerfile: Dockerfile
+      args:
+        - VITE_DEFAULT_FOLDER_PATH=DockerCompose
+        - VITE_API_URL=http://localhost:5005
+    ports:
+      - "5055:8080"
+

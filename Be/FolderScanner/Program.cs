@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using FolderScanner;
 using FolderScanner.Extensions;
 using FolderScanner.Interfaces;
-using FolderScanner.Middleware;
 using FolderScanner.Orchestrators;
 using FolderScanner.Services;
 

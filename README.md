@@ -17,16 +17,27 @@ Do not use databases.
 
 ## How to run
 
-#### Requirements
+You can either run backend and frontend separately or launch the whole app via docker compose.
 
-* .Net 7
-* Node.js 16
+### Backend
 
-#### Backend
+Requirements: .Net 7
+
     cd Be\FolderScanner
     dotnet run
 
-#### Frontend
+### Frontend
+
+Requirements: Node.js 16
+
     cd Fe
     pnpm i
     pnpm dev
+
+### Docker compose
+
+    docker-compose up
+
+Then just open `http://localhost:5055/` in your browser.
+
+Folder `DockerCompose` located in the root of this repo is mounted to the `DockerCompose` folder in the backend container. Therefore all files you place and modify in this folder will be scanned by the application.
