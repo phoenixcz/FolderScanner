@@ -25,7 +25,10 @@ public class ModifiedFilesController : ControllerBase
     }
 
     [HttpGet("{path}")]
-    public IActionResult GetModifiedFiles(string path)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(string))]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
+    public IReadOnlyCollection<ModifiedFileDto> GetModifiedFiles(string path)
     {
         _logger.LogInformation("Started getting of modified files for path: {Path}", path);
 
@@ -33,6 +36,6 @@ public class ModifiedFilesController : ControllerBase
         var dto = _mapper.Map<IReadOnlyCollection<ModifiedFileDto>>(result);
 
         _logger.LogInformation("Finished getting of modified files for path: {Path}", path);
-        return Ok(dto);
+        return dto;
     }
 }
