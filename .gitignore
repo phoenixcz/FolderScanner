@@ -1,4 +1,7 @@
 # Docker compose mounted folder
 /DockerCompose/
 
+# Editor directories and files
+.idea
+
 
